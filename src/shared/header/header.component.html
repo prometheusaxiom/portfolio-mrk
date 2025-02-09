@@ -1,0 +1,7 @@
+<div class="mat-elevation-z1" id="main-container">
+    <div id="branding" class="lobster-regular">Mrk</div>
+    <div id="navigation">
+        <div (click)="goToHome()" class="{{ url.includes('index') ? 'navigation-item-active lato-bold' : 'navigation-item lato-bold'}}">Home</div>
+        <div (click)="goToProjects()" class="{{ url.includes('projects') ? 'navigation-item-active lato-bold' : 'navigation-item lato-bold'}}">Projects</div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div id="main-container">
+    <app-header id="header"></app-header>
+    <div id="body">
+        <div class="image-container">
+            <mat-spinner *ngIf="isLoading" class="image-loader custom-spinner"></mat-spinner>
+            <img 
+                [src]="imageSrc" 
+                class="profile-image"
+                (load)="onImageLoad()"
+                (error)="onImageError()">
+        </div>
+        <div class="body-item lato-bold">Mark Rayden C. Mirafuente</div>
+        <div class="body-item microsoft-link lato-light-italic" matTooltip="Microsoft Certification" (click)="goToLink(microsoftCertificate)">Microsoft Certified: Azure Cosmos DB Developer</div>
+        <div class="body-item lato-light-italic">Software Engineer | Full Stack Web Developer</div>
+        <div class="body-item lato-bold" style="margin-top: 10px;">Tech Stack</div>
+        <div class="icons">
+            <img src="https://assetsportfoliomrk.blob.core.windows.net/assets/html.png">
+            <img src="https://assetsportfoliomrk.blob.core.windows.net/assets/css.png">
+            <img src="https://assetsportfoliomrk.blob.core.windows.net/assets/sass.png">
+            <img src="https://assetsportfoliomrk.blob.core.windows.net/assets/javascript.png">
+            <img src="https://assetsportfoliomrk.blob.core.windows.net/assets/angular.png">
+            <img src="https://assetsportfoliomrk.blob.core.windows.net/assets/csharp.png">
+            <img src="https://assetsportfoliomrk.blob.core.windows.net/assets/sql.png">
+            <img src="https://assetsportfoliomrk.blob.core.windows.net/assets/azure.png">
+        </div>
+        <div class="body-item lato-bold" style="margin-top: 10px;">Social Media</div>
+        <div class="icons">
+            <a class="icon" matTooltip="Gmail" (click)="goToLink(gmail)"><i class="fas fa-envelope icon-size"></i></a>
+            <a class="icon" matTooltip="LinkedIn" (click)="goToLink(linkedIn)"><i class="fab fa-linkedin icon-size"></i></a>
+            <a class="icon" matTooltip="GitHub" (click)="goToLink(github)"><i class="fab fa-github-square icon-size"></i></a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div id="main-container">
+    <app-header id="header"></app-header>
+    <div id="body">
+        <div id="project" *ngFor="let project of projects">
+            <div class="project-item">
+                <span class="lato-bold">Company:</span>
+                <div class="lato-light-italic">{{ project.company }}</div>
+            </div>
+            <div class="project-item">
+                <span class="lato-bold">Project:</span>
+                <div class="lato-light-italic">{{ project.overview }}</div>
+            </div>
+            <div class="project-item">
+                <span class="lato-bold">Technologies Used:</span>
+                <div class="lato-light-italic">{{ project.techStack }}</div>
+            </div>
+            <div id="project-item key-contribution-section">
+                <span class="lato-bold">Key Contributions:</span>
+                <div class="lato-light-italic key-contribution">
+                    <li *ngFor="let keyContribution of project.keyContributions">{{keyContribution}}</li>
+                </div>
+            </div>
+            <div id="implemented-pages-section">
+                <span class="lato-bold">Implemented pages:</span>
+                <div id="image-container">
+                    <ng-container *ngFor="let image of project.imageUrl; let i = index">
+                        <img 
+                          matTooltip="Click to view in fullscreen"
+                          [ngSrc]="image" 
+                          (click)="toggleFullscreen($event)" 
+                          class="mat-elevation-z8 enlargeable-image" 
+                          [width]="400" 
+                          [height]="300"
+                          [priority]="i < 2"
+                          [loading]="i >= 2 ? 'lazy' : undefined"
+                        >
+                      </ng-container>
+                </div>
+            </div>
+            <div id="horizontal-line"></div>
+        </div>
+    </div>
+</div>
