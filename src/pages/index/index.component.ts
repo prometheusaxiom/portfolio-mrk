@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-index',
@@ -8,7 +8,7 @@ import { Component, OnInit} from '@angular/core';
 
 export class IndexComponent implements OnInit {
 
-  imageSrc: string = 'https://assetsportfoliomrk.blob.core.windows.net/assets/profile-image.png';
+  imageSrc: string = 'https://assetsportfoliomrk.blob.core.windows.net/assets/portfolio_dp.png';
   gmail: string = 'https://mail.google.com/mail/?view=cm&fs=1&to=markraydenm@gmail.com';
   linkedIn: string = 'https://www.linkedin.com/in/mark-rayden-mirafuente-508b631aa/';
   github: string = 'https://github.com/prometheusaxiom';
@@ -19,18 +19,19 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
   }
 
-  onImageLoad(){
+  onImageLoad() {
     this.isLoading = false;
   }
 
   onImageError() {
     this.isLoading = false;
+    this.imageSrc = 'https://assetsportfoliomrk.blob.core.windows.net/assets/alt_dp.png';
   }
 
-  goToLink(link: string){
+  goToLink(link: string) {
     window.open(link, "_blank");
   }
 }

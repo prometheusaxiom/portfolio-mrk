@@ -1,43 +1,67 @@
 <div id="main-container">
-    <app-header id="header"></app-header>
-    <div id="body">
-        <div id="project" *ngFor="let project of projects">
-            <div class="project-item">
-                <span class="lato-bold">Company:</span>
-                <div class="lato-light-italic">{{ project.company }}</div>
-            </div>
-            <div class="project-item">
-                <span class="lato-bold">Project:</span>
-                <div class="lato-light-italic">{{ project.overview }}</div>
-            </div>
-            <div class="project-item">
-                <span class="lato-bold">Technologies Used:</span>
-                <div class="lato-light-italic">{{ project.techStack }}</div>
-            </div>
-            <div id="project-item key-contribution-section">
-                <span class="lato-bold">Key Contributions:</span>
-                <div class="lato-light-italic key-contribution">
-                    <li *ngFor="let keyContribution of project.keyContributions">{{keyContribution}}</li>
-                </div>
-            </div>
-            <div id="implemented-pages-section">
-                <span class="lato-bold">Implemented pages:</span>
-                <div id="image-container">
-                    <ng-container *ngFor="let image of project.imageUrl; let i = index">
-                        <img 
-                          matTooltip="Click to view in fullscreen"
-                          [ngSrc]="image" 
-                          (click)="toggleFullscreen($event)" 
-                          class="mat-elevation-z8 enlargeable-image" 
-                          [width]="400" 
-                          [height]="300"
-                          [priority]="i < 2"
-                          [loading]="i >= 2 ? 'lazy' : undefined"
-                        >
-                      </ng-container>
-                </div>
-            </div>
-            <div id="horizontal-line"></div>
-        </div>
+  <app-header id="header"></app-header>
+  <div id="body">
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        gap: 10px;
+      "
+    >
+      <div class="lato-bold" style="font-size: 30px">
+        My Work as a Full-Stack Developer
+      </div>
+      <div class="lato-light-italic" style="font-size: 20px">
+        A collection of projects where I contributed to both frontend and
+        backend development as part of a team.
+      </div>
     </div>
+    <div id="project" *ngFor="let project of projects">
+      <div class="project-item">
+        <div class="lato-bold">Company:</div>
+        <div class="lato-regular">{{ project.company }}</div>
+      </div>
+      <div class="project-item">
+        <div class="lato-bold">Project:</div>
+        <div class="lato-regular">{{ project.overview }}</div>
+      </div>
+      <div class="project-item">
+        <div class="lato-bold">Technologies Used:</div>
+        <div class="lato-regular">{{ project.techStack }}</div>
+      </div>
+      <div id="project-item key-contribution-section">
+        <div class="lato-bold">Key Contributions:</div>
+        <div class="lato-regular key-contribution">
+          <li
+            style="padding-left: 40px"
+            *ngFor="let keyContribution of project.keyContributions"
+          >
+            {{ keyContribution }}
+          </li>
+        </div>
+      </div>
+      <div id="implemented-pages-section">
+        <div class="lato-bold">Implemented pages:</div>
+        <div id="image-container">
+          <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let image of project.imageUrl">
+              <ng-template carouselSlide>
+                <div class="slide">
+                  <img
+                    [src]="image"
+                    [alt]="project.company"
+                    class="enlargeable-image"
+                  />
+                </div>
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
+        </div>
+      </div>
+      <div id="horizontal-line"></div>
+    </div>
+  </div>
 </div>
